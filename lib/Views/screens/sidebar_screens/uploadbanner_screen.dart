@@ -54,7 +54,7 @@ class _UploadbannerScreenState extends State<UploadbannerScreen> {
               children: [
                 Container(
                   height: 140,
-                  width: 100,
+                  width: 140,
                   decoration: BoxDecoration(
                       color: Colors.grey.shade400,
                       border: Border.all(
