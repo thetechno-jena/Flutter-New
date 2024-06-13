@@ -22,7 +22,7 @@ class _UploadbannerScreenState extends State<UploadbannerScreen> {
     if (result != null) {
       setState(() {
         _image = result.files.first.bytes;
-        _image = result.files.first.name;
+        fileName = result.files.first.name;
       });
     }
   }
@@ -52,22 +52,23 @@ class _UploadbannerScreenState extends State<UploadbannerScreen> {
             child: Row(
               children: [
                 Container(
-                    height: 140,
-                    width: 140,
-                    decoration: BoxDecoration(
-                        color: Colors.grey.shade400,
-                        border: Border.all(
-                          color: Color.fromARGB(255, 30, 71, 255),
+                  height: 140,
+                  width: 140,
+                  decoration: BoxDecoration(
+                      color: Colors.grey.shade400,
+                      border: Border.all(
+                        color: Color.fromARGB(255, 30, 71, 255),
+                      ),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: _image != null
+                      ? Image.memory(
+                          _image,
+                          fit: BoxFit.cover,
+                        )
+                      : Center(
+                          child: Text('Banner'),
                         ),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: _image != null
-                        ? Image.memory(
-                            _image,
-                            fit: BoxFit.cover,
-                          )
-                        : Center(
-                            child: Text('Banner'),
-                          )),
+                ),
                 SizedBox(
                   height: 20,
                 ),
